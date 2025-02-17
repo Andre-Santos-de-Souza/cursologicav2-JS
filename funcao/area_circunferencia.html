@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área da circunferência</title>
+</head>
+<body>
+    <input type="number" id="raio">
+    <button onclick="MostrarCircunferencia()">Mostrar área da circunferência</button>
+    <div id="resultado"></div>
+
+    <script>
+        const raio = document.getElementById("raio");
+        const resultado = document.getElementById("resultado");
+
+        function MostrarCircunferencia(){
+            let raioValue = parseFloat(raio.value);
+            let circunferencia = Math.PI * raioValue ** 2;
+
+            resultado.innerHTML = `A área do círculo é igual a ${circunferencia}`;
+        }
+    </script>
+</body>
+</html>

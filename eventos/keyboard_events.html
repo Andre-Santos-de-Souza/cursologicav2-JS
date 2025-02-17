@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
+
+    <script>
+        const msg = document.getElementById("msg")
+
+        /*keypress: Este evento é disparado quando uma tecla é pressionada e produz um caractere (como letras, números, etc.). No entanto, ele foi depreciado em algumas versões recentes de navegadores, e a recomendação é usar o keydown ou keyup.
+
+        keydown: O evento "keydown" é disparado quando uma tecla é pressionada para baixo. Ele ocorre antes de o caractere ser inserido na tela (ou seja, antes de um valor ser inserido em um campo de texto).
+
+        keyup: Este evento é disparado quando uma tecla é solta após ser pressionada. Ou seja, ele ocorre depois que o caractere foi inserido no campo de texto.*/
+
+        msg.addEventListener("keypress",keypress)
+        msg.addEventListener("keyup",keyup)
+        msg.addEventListener("keydown",keydown)
+
+        function keypress(){
+            console.log("keypress")
+            console.log(this.value)
+        }
+        
+        function keyup(){
+            console.log("keyup")
+            console.log(this.value)
+        }
+        
+        function keydown(){
+            console.log("keydown")
+            console.log(this.value)
+        }
+    </script>
+</body>
+</html>

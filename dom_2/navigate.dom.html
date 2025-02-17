@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Teste DOM</h1>
+
+    <div class="container">
+        <p>Teste 1</p>
+        <p>lorem <a href="#">link</a>.</p>
+        <p>Teste 2</p>
+
+        <h2>Lista</h2>
+        <ul>
+            <li>item 1</li>
+            <li>item 2
+                <ul>
+                    <li>item 2.a</li>
+                    <li>item 2.b</li>
+                    <li>item 2.c</li>
+                    <li>
+                        <!-- addsd -->
+                    </li>
+                </ul>
+            </li>
+            <li>item <a href="#">link</a></li>
+        </ul>
+    </div>
+
+    <script>
+        console.log(document.body)
+        console.log(document.body.parentElement)
+        console.log(document.body.parentNode)
+        const html = document.body.parentElement;
+
+        /*
+        Ambos, .parentElement e .parentNode, são propriedades usadas no DOM (Document Object Model) para acessar o nó pai de um elemento. A diferença principal é:
+
+        .parentElement:
+        Retorna o elemento pai (do tipo Element) do nó atual.
+        Retorna null se o nó pai não for do tipo Element.
+
+        .parentNode:
+        Retorna o nó pai do nó atual, que pode ser um elemento (Element), um nó de documento (Document), ou outros tipos de nós.
+        É mais genérico e retorna qualquer tipo de nó pai.
+
+        O tipo Element no DOM representa um nó de um documento HTML ou XML que é um elemento (tag). Ele é um dos tipos mais comuns de nós e corresponde a qualquer tag HTML, como <div>, <p>, <span>, etc.
+        */
+        console.log(document.body.parentElement === document.body.parentNode)
+
+        console.log(html.parentElement)
+        console.log(html.parentNode)
+
+        const h2 = document.querySelector("h2")
+        /*.nextElementSibling: Retorna o próximo elemento irmão (sibling) que é um nó de tipo elemento (não texto ou comentário). Se o próximo nó não for um elemento, o método retorna null.
+
+        .nextSibling: Retorna o próximo nó irmão, independentemente do tipo de nó (pode ser um texto, comentário ou elemento). Se não houver próximo nó, retorna null.
+
+        .previousElementSibling: Retorna o elemento irmão anterior (similar ao .nextElementSibling, mas no sentido inverso). Se não houver elemento anterior, retorna null.
+
+        .previousSibling: Retorna o nó irmão anterior, sem considerar o tipo de nó. Também retorna null se não houver nó anterior.*/
+        const h2nextElementSibling =h2.nextElementSibling;
+        h2nextElementSibling.style.background = "yellow";
+
+        console.log(h2.nextElementSibling)
+        console.log(h2.nextSibling)
+        console.log(h2.previousSibling)
+        console.log(h2.previousElementSibling)
+
+        /*
+        childNodes
+        children
+        firstChild
+        firstElementChild
+        lastChild
+        lastElementChild
+        hasChildNodes()
+        */
+
+        const link = document.querySelector("a")
+        const list = document.querySelector("ul ul")
+
+        /*.childNodes e .children são duas propriedades que retornam os filhos de um elemento no DOM (Document Object Model), mas têm comportamentos diferentes:
+
+        .childNodes: Retorna uma lista de todos os nós filhos de um elemento, incluindo elementos, texto, e nós de comentário. Ou seja, é uma coleção de todos os tipos de nós que são filhos do elemento.
+
+        .children: Retorna uma coleção apenas dos elementos filhos, ou seja, ignora nós de texto e comentários. A coleção é formada apenas pelos elementos HTML que são filhos diretos.
+
+        Em resumo:
+        .childNodes inclui todos os tipos de nós filhos (elementos, texto, etc.).
+        .children inclui apenas os elementos filhos.*/
+        console.log(link.parentElement.childNodes[1])
+        console.log(link.parentElement.children)
+
+        /*
+        .firstChild: Retorna o primeiro nó filho de um elemento, que pode ser um texto, comentário ou outro tipo de nó.
+ 
+        .firstElementChild: Retorna o primeiro nó filho que é um elemento (exclui nós de texto e comentários).
+
+        .lastChild: Retorna o último nó filho de um elemento, que pode ser um texto, comentário ou outro tipo de nó.
+
+        .lastElementChild: Retorna o último nó filho que é um elemento (exclui nós de texto e comentários).
+
+        .hasChildNodes(): Retorna true se o elemento tiver nós filhos (qualquer tipo de nó), e false caso contrário.
+        */
+        console.log(link.parentElement.firstChild)
+        console.log(link.parentElement.firstElementChild)
+        console.log(link.parentElement.lastChild)
+        console.log(link.parentElement.lastElementChild)
+        console.log(list.lastElementChild.hasChildNodes())
+        console.log(list.lastElementChild.childNodes[1].nodeType)
+    </script>
+</body>
+</html>

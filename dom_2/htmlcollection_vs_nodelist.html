@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <ul id="list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+        </ul>
+    </div>
+
+    <script>
+        /*
+        HTMLCollection
+        Definição: É uma coleção ao vivo de elementos HTML em um documento.
+        Características:
+        Atualiza automaticamente quando os elementos no DOM mudam.
+        Acessível por índice ou pelo atributo id/name dos elementos.
+        Retornado por métodos como document.getElementsByClassName() e document.getElementsByTagName().
+
+        NodeList
+        Definição: É uma coleção de nós (não apenas elementos) do DOM.
+        Características:
+        Pode ser estática ou ao vivo, dependendo de como foi obtida.
+        Retornado por métodos como document.querySelectorAll() (estática) ou childNodes (ao vivo).
+        Permite acesso por índice e pode ser iterável em navegadores modernos com forEach().
+
+        Diferença principal:
+        HTMLCollection contém apenas elementos HTML, enquanto NodeList pode incluir outros tipos de nós (como textos e comentários).
+        */
+        const nodeList = document.querySelectorAll("#list li");
+        const collection = document.getElementById("list").getElementsByTagName("li")
+
+        console.log(nodeList)
+        console.log(collection)
+
+        document.querySelector("#list").innerHTML += "<li>Item 6</li>";
+
+        console.log(nodeList)
+        console.log(collection)
+
+        document.getElementById("list").innerHTML += "<li>Item 7</li>";
+
+        console.log(nodeList)
+        console.log(collection)
+
+        document.getElementById("list").innerHTML = "";
+
+        console.log(nodeList)
+        console.log(collection)
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Calcular</title>
+</head>
+<body>
+    <script>
+        function calcular(simbolo, n1, n2){
+            if(simbolo === "+"){
+                return n1+n2;
+            }else if(simbolo === "-"){
+                return n1-n2;
+            }else if(simbolo === "*"){
+                return n1*n2;
+            }else if(simbolo === "/"){
+                return n1/n2;
+            }else{
+                return null;
+            }
+        }
+
+        alert(calcular("5", 2,2));
+    </script>
+</body>
+</html>

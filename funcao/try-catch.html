@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>try ... catch(error)</h1>
+
+    <div id="output"></div>
+
+    <script>
+        let obj = {nome: "Daniel", email: "daniel@server.com"};
+
+        try{
+            document.getElementById("output").innerHTML = `Nome: ${obj.nome} - Email: ${obj.email}`;
+        }catch(e){
+            console.log(e);
+            console.log(e.message);
+            alert("Deu ruim " + e.message);
+        }finally{
+            alert("Fim do programa");
+        }
+
+    </script>
+
+    <script src="areas.js"></script>
+
+    <script>
+        try{
+            console.log(calcularAreaRetangulo(2, "adasd"));
+        }catch(e){
+            alert("Deu ruim: "+ e.message);
+        }
+
+        try{
+            let areaTriangulo = calcularAreaTriangulo(3,5);
+            document.getElementById("output").innerHTML = `a área do triangulo é ${areaTriangulo}`;
+        }catch(e){
+            console.log(e);
+        }
+        
+
+        try{
+            let areaCirculo = calcularAreaCirculo(10)
+            console.log("A área do circulo de raio 10 é: "+ areaCirculo);
+        }catch(e){
+            console.log(e.message);
+        }
+
+        alert("fim do programa")
+    </script>
+</body>
+</html>

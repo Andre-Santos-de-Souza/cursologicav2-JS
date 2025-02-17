@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>loops - dados</h1>
+
+    <script>
+
+        let dados1 = parseInt(Math.random() * 6 + 1);
+        let dados2 = parseInt(Math.random() * 6 + 1);
+        let soma = 1;
+        document.write(`Dados1: ${dados1} - Dado2: ${dados2} <br>`);
+        while(dados1 !== dados2){
+            dados1 = parseInt(Math.random() * 6 + 1);
+            dados2 = parseInt(Math.random() * 6 + 1);
+            soma++;
+            document.write(`Dados1: ${dados1} - Dado2: ${dados2} <br>`);    
+        }
+        document.write(`Soma dos lançamentos de dados: ${soma}`);
+
+        // let dados1 = parseInt(Math.random() * 6 + 1);
+        // let dados2 = parseInt(Math.random() * 6 + 1);
+        
+        // let soma = 1;
+        // document.write(`Dados1: ${dados1} - Dado2: ${dados2} <br>`);
+        // do{
+        //     dados1 = parseInt(Math.random() * 6 + 1);
+        //     dados2 = parseInt(Math.random() * 6 + 1);
+        //     soma++;
+
+        //     document.write(`Dados1: ${dados1} - Dado2: ${dados2} <br>`);
+        // }while(dados1 !== dados2);
+        // document.write(`Soma dos lançamentos de dados: ${soma}`);
+    </script>
+</body>
+</html>

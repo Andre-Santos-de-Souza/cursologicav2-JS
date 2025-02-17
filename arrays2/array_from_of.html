@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio velit, minima tempore eos expedita aliquid natus cumque nobis unde praesentium placeat enim obcaecati quidem, quaerat corrupti sed consequuntur temporibus sit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio velit, minima tempore eos expedita aliquid natus cumque nobis unde praesentium placeat enim obcaecati quidem, quaerat corrupti sed consequuntur temporibus sit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio velit, minima tempore eos expedita aliquid natus cumque nobis unde praesentium placeat enim obcaecati quidem, quaerat corrupti sed consequuntur temporibus sit.</p>
+    <script>
+        /*O código cria um novo array chamado arr1 com 3 elementos, mas sem valores definidos. Ou seja, o array será preenchido com slots vazios (o que é equivalente a undefined). Quando o console.log(arr1) é executado, ele exibe o array no console. O resultado será algo como [ <3 empty items> ].*/
+        const arr1 = new Array(3)
+        // const arr1 = new Array(1,3)
+        console.log(arr1)
+        console.log(arr1.length)
+
+        /*O método Array.from() no JavaScript é usado para criar uma nova instância de array a partir de um objeto semelhante a um array ou iterável.
+        Criação de uma cópia superficial: Ele cria um novo array com os mesmos elementos do array arr1. Isso significa que alterações em arr2 não afetarão arr1, pois arr2 é uma nova instância.
+        */
+        const arr2 = Array.from(arr1)
+        arr2.push(4,5)
+        console.log(arr2)
+
+        /*
+        O método Array.of() é utilizado para criar um novo array com os elementos passados como argumento. Ao contrário de Array() (que pode ter comportamentos inesperados dependendo do tipo de argumento), Array.of() sempre cria um array com os itens fornecidos. No exemplo, Array.of(3) cria um array com um único elemento, o número 3.
+
+        Resumidamente, Array.of() é usado para criar arrays de maneira mais previsível e direta.
+        */
+        const arr3 = Array.of(3);
+        console.log(arr3)
+        console.log(arr3.length)
+
+        let paragrafos = document.querySelectorAll("p");
+        console.log(paragrafos)
+        // paragrafos.forEach(function(p,i){
+        //     p.textContent = `${++i} - ${p.textContent}`;
+        // })
+
+        paragrafos = Array.from(paragrafos)
+
+        paragrafos.map(function(p,i){
+            p.textContent = `${++i} - ${p.textContent}`;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container2{
+            background: #ccc;
+            padding: 15px;
+        }
+        .container2 p{
+            border:1px solid red;
+            padding: 10px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste DOM</h1>
+
+    <!--beforebegin-->
+    <div class="container2">
+        <!--afterbegin-->
+        <p>parágrafo 1</p>
+        <p>parágrafo 2</p>
+        <p>parágrafo 3</p>
+        <!--beforereend-->
+    </div>
+    <!--afterend-->
+    <div class="container">
+        <p>Teste 1</p>
+        <p>lorem <a href="#">link</a>.</p>
+        <p>Teste 2</p>
+
+        <h2>Lista</h2>
+        <ul>
+            <li>item 1</li>
+            <li>item 2
+                <ul>
+                    <li>item 2.a</li>
+                    <li>item 2.b</li>
+                    <li>item 2.c</li>
+                    <li>
+                        <!-- addsd -->
+                    </li>
+                </ul>
+            </li>
+            <li>item <a href="#">link</a></li>
+        </ul>
+    </div>
+
+    <script>
+        /*
+        .createElement()
+        Cria um novo elemento HTML.
+        Exemplo:
+        const div = document.createElement("div");
+
+        .createAttribute()
+        Cria um novo atributo para ser adicionado a um elemento.
+        Exemplo:
+        const idAttr = document.createAttribute("id");
+        idAttr.value = "meuId";
+
+        .setAttributeNode()
+        Associa um atributo criado com .createAttribute() a um elemento.
+        div.setAttributeNode(idAttr);
+
+        .setAttribute("class", "ola")
+        Define diretamente um atributo (neste caso, class) e seu valor (ola) em um elemento.
+        Exemplo:
+        div.setAttribute("class", "ola");
+
+        .append()
+        Adiciona um ou mais nós ou strings como filhos de um elemento. Suporta múltiplos argumentos e strings. Adiciona o elemeto depois do último filho.
+        Exemplo:
+        div.append("Texto", anotherElement);
+
+        .appendChild()
+        Adiciona um único nó como filho de um elemento. Não suporta strings, apenas nós (elementos ou objetos do DOM). Adiciona o elemeto depois do último filho.
+        Exemplo:
+        div.appendChild(anotherElement);
+
+        .prepend()
+        Adiciona um ou mais nós ou strings no início do elemento. Strings são convertidas em nós de texto. Adiciona o elemeto
+        antes do primeiro filho.
+        Exemplo: elemento.prepend('Texto', outroElemento).
+
+        container.insertBefore(title2, list):
+        Este método insere o elemento title2 antes do elemento list dentro do mesmo nó pai.
+
+        subLevel = subLevel.cloneNode(true)
+        Cria uma cópia do elemento subLevel e de todos os seus filhos (graças ao argumento true, que indica uma cópia profunda).
+        cloneNode(true) copia o nó selecionado, incluindo seus filhos, mantendo a estrutura original.
+
+        .after("texto inserido com after ", "outro texto")
+        Insere o texto ou elementos especificados depois do elemento alvo no DOM.
+        Exemplo: element.after("texto inserido com after ", "outro texto"); adiciona os textos após o elemento element.
+
+        .before("texto inserido com before ", span)
+        Insere o texto ou elementos especificados antes do elemento alvo no DOM.
+        Exemplo: element.before("texto inserido com before ", span); adiciona o texto e o elemento span antes do elemento element.
+
+        As funções .insertAdjacentHTML(), .insertAdjacentText() e .insertAdjacentElement() são métodos do DOM em JavaScript usados para inserir conteúdo em relação a um elemento HTML existente.
+        .insertAdjacentHTML(position, text): Insere um conteúdo HTML (como string, tags) em relação ao elemento. O parâmetro position pode ser:
+        "beforebegin": Antes do próprio elemento.
+        "afterbegin": Logo dentro do elemento, antes de seu conteúdo.
+        "beforeend": Logo dentro do elemento, após seu conteúdo.
+        "afterend": Após o próprio elemento.
+        .insertAdjacentText(position, text): Insere texto simples em relação ao elemento, sem interpretar HTML. O position funciona da mesma forma que no .insertAdjacentHTML().
+
+        .insertAdjacentElement(position, element): Insere outro elemento (em vez de texto ou HTML) em relação ao elemento, com as mesmas opções de position.
+
+
+        list.remove(): Remove o elemento list diretamente do DOM, ou seja, ele retira o próprio elemento da árvore DOM.
+
+        list.parentElement.removeChild(list): Remove o elemento list do DOM, mas de maneira indireta. Primeiro, acessa o parentElement (o elemento pai de list) e, em seguida, usa o método removeChild() para remover list de seus filhos.
+
+        .replaceChild(novo, velho) é usado em JavaScript para substituir um nó filho específico (velho) de um elemento por outro nó (novo). Ele pertence ao objeto DOM e é chamado no elemento pai que contém o nó a ser substituído.
+        */
+        const title = document.createElement("h1")
+        const atributo = document.createAttribute("id")
+        atributo.value = "title1"
+        title.setAttributeNode(atributo)
+
+        title.setAttribute("title", "title inserido dinamicamente")
+        title.setAttribute("style", "color: red")
+        title.setAttribute("class", "ola")
+
+        const text = document.createTextNode("criar nós no DOM")
+        title.append(text)
+        console.log(title)
+
+        title.textContent = "texto inserido com textContent"
+        document.querySelector(".container").appendChild(title)
+        // document.querySelector(".container").prepend(title, "texto")
+        // document.querySelector(".container").append("texto",title)
+
+        title2 = document.createElement("h1")
+        title2.textContent = "title 2"
+        const list = document.querySelector("ul")
+        const container = document.querySelector(".container")
+        container.insertBefore(title2,list)
+        container.insertBefore(title2, container.firstElementChild)
+
+        let subLevel = document.querySelector("ul ul")
+        subLevel = subLevel.cloneNode(true)
+        const h2 = document.querySelector('h2')
+
+        container.insertBefore(subLevel, h2.nextElementSibling)
+
+        const segundoParagrafo = container.firstElementChild.nextElementSibling.nextElementSibling
+        console.log(container.firstElementChild)
+        console.log(segundoParagrafo)
+
+        const span = document.createElement("span")
+        span.textContent = "span dinamica"
+
+        segundoParagrafo.after("texto inserido com after ", "outro texto")
+        segundoParagrafo.before("texto inserido com before ", span)
+
+        const container2 = document.querySelector(".container2")
+        // beforebegin, afterbegin, beforeend, afterend
+        container2.insertAdjacentHTML("beforebegin","<b> texto inserido 1</b>")
+        container2.insertAdjacentHTML("afterbegin","<b> texto inserido 2</b>")
+        container2.insertAdjacentHTML("beforeend","<b> texto inserido</b> 3")
+        container2.insertAdjacentHTML("afterend","<b> texto inserido</b> 4")
+
+        container2.insertAdjacentText("afterbegin","<b> texto inserido 1</b>")
+
+        const em = document.createElement("em")
+        em.textContent = "texto com enfase"
+        container2.insertAdjacentElement("beforeend", em)
+
+        // list.remove()
+        // parentNode.removeChild(list)
+        list.parentElement.removeChild(list)
+
+        const parent = document.body
+        const novo = container.querySelector("h1")
+        const velho = document.querySelector("h1")
+        parent.replaceChild(novo, velho)
+    </script>
+</body>
+</html>

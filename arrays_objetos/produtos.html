@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Produtos</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        table,th,td{
+            border: 1px solid black;
+        }
+        th,td{
+            padding: 10px;
+        }
+        td+td{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabela de produtos</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+
+        <tbody id="tabelaProdutos">
+            <!-- <tr>
+                <td>Caneta</td>
+                <td>R$ 2.00</td>
+                <td>3</td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <script>
+        const produtos = [
+            {nome: "Caneta", preco: 2, quantidade: 3},
+            {nome: "Lapis", preco: 1.5, quantidade: 3},
+            {nome: "Borracha", preco: 0.75, quantidade: 3},
+            {nome: "Caderno", preco: 30.0, quantidade: 3},
+            {nome: "Régua", preco: 4, quantidade: 3},
+        ]
+
+        const tabelaProdutos = document.getElementById("tabelaProdutos");
+
+        for(let i = 0; i < produtos.length; i++){
+            const tr = document.createElement("tr");
+            const tdNome = document.createElement("td");
+            const tdPreco = document.createElement("td");
+            const tdQuantidade = document.createElement("td");
+
+            tdNome.innerHTML = produtos[i].nome;
+            tdPreco.innerHTML = produtos[i].preco.toFixed(2); 
+            tdQuantidade.innerHTML = produtos[i].quantidade;
+
+            tr.appendChild(tdNome);
+            tr.appendChild(tdPreco);
+            tr.appendChild(tdQuantidade);
+
+            tabelaProdutos.appendChild(tr);
+        }
+    </script>
+</body>
+</html>

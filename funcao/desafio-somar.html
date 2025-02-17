@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Somar</title>
+</head>
+<body>
+    <label for="numero1">Número 1</label>
+    <input type="number" name="numero1" id="numero1">
+    <br>
+    <label for="numero2">Número 2</label>
+    <input type="number" name="numero2" id="numero2">
+    <br>
+    <button onclick="mostrarSoma()">Mostrar resultado da soma</button>
+    <div id="output"></div>
+
+    <script>
+        let numeroUm = document.getElementById("numero1");
+        let numeroDois = document.getElementById("numero2");
+        let output = document.getElementById("output");
+
+        function mostrarSoma(){
+            let numeroUmInput = parseFloat(numeroUm.value);
+            let numeroDoisInput = parseFloat(numeroDois.value);
+
+            let resultado = calcularSoma(numeroDoisInput, numeroDoisInput);
+            output.innerHTML = `Resultado da soma é ${resultado}`;
+        }
+
+        function calcularSoma(n1,n2){
+            return n1+n2;
+        }
+    </script>
+</body>
+</html>

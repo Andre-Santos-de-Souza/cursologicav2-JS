@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays e Objetos</title>
+</head>
+<body>
+    <ul id="listaObjetosPessoas"></ul>
+
+    <script>
+        const pessoas =[
+            {nome: "Daniel", email: "daniel@serve.com"},
+            {nome: "Maria", email: "maria@serve.com"},
+            {nome: "João", email: "joao@serve.com"},
+            {nome: "Luciane", email: "luciane@serve.com"},
+            {nome: "Ricardo", email: "ricardo@serve.com"},
+        ]
+
+        const listaObjetosPessoas = document.getElementById("listaObjetosPessoas");
+
+        for(let i = 0; i < pessoas.length; i++){
+            const li = document.createElement("li");
+            li.textContent = `${pessoas[i].nome} - ${pessoas[i].email}`;
+            listaObjetosPessoas.appendChild(li);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .todo-container {
+            width: 100%;
+            max-width: 400px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        ul li {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        ul li.completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        ul li button {
+            background-color: transparent;
+            border: none;
+            color: #ff6347;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        ul li button:hover {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Add a new task..." required>
+            <button type="submit">Add</button>
+        </form>
+        <ul id="todo-list"></ul>
+    </div>
+
+    <script>
+        const todoForm = document.getElementById("todo-form")
+        const input = document.getElementById("todo-input")
+        const ul = document.querySelector("#todo-list")
+
+        let arrTasks = []
+
+        function criarLi(texto){
+            const p = document.createElement("p")
+            p.textContent = texto
+            const li = document.createElement("li")
+
+            const button = document.createElement("button")
+            button.textContent = "Excluir"
+            button.addEventListener("click", function(){
+                li.remove();
+                arrTasks = arrTasks.filter(taskObj => taskObj.tarefa !== li);     
+                removerLocalStorage()
+            })
+        
+            li.appendChild(p)
+            li.appendChild(button)
+            return li
+        } 
+
+        function removerLocalStorage(){
+            if (arrTasks.length === 0) {
+                localStorage.removeItem("Tarefa");
+            } else {
+                localStorage.setItem("Tarefa", JSON.stringify(arrTasks.map(taskObj => taskObj.tarefa.querySelector("p").textContent)));
+            }
+        }
+
+        function addTasks(texto){
+            const li = criarLi(texto)
+            let objTasks = {}
+            objTasks = {tarefa: li}
+            arrTasks.push(objTasks)
+            localStorage.setItem("Tarefa", JSON.stringify(arrTasks.map(taskObj => taskObj.tarefa.querySelector("p").textContent)));
+            return arrTasks
+        }  
+
+        todoForm.addEventListener("submit",function(e){
+            e.preventDefault()
+            addTasks(input.value)
+            for(let i = 0; i < arrTasks.length; i++){
+                const tarefa = ul.appendChild(arrTasks[i].tarefa)
+            }
+            input.value = "";
+        })
+    </script>
+</body>
+</html>

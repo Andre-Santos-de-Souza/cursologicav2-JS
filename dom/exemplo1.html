@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--DOM -> Document Object Model(Modelo de objeto de documento)-->
+
+    <!--      Árvore DOM 
+                window
+    location - document - history   
+                  |
+                html
+                 |
+            head - body
+           |         |
+   meta - title    h1 - p - p - div...
+                        |
+                      strong   
+    -->
+
+    <!--
+    Selecionando:
+    por tag -> getElementsByTagName()
+    por id -> getElementByid()
+    por classe -> getElementByClassName()
+    por Seletor -> querySelector() - querySelectorAll()
+    -->
+    <h1 id="title1">Curso Javascript Completo 2018</h1>
+
+    <main class="cmain" id="idmain">
+        <h2>subtitulo</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+    </main>
+
+    <section class="csection" id="idsection">
+        <h3>subtitulo</h3>
+        <p class="paragrafo2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        <p class="paragrafo2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+    </section>
+    <script>
+        document.querySelector("h1").textContent = "lalalala"
+        document.querySelectorAll(".paragrafo2")[0].textContent = "lalalala";
+
+        let teste = document.getElementById("idmain");
+        teste.getElementsByTagName("p")[0].textContent = "vjdfnbksjdfbkdsjfbds"
+        
+        document.querySelector("#idmain p").textContent ="dsjdjsdj"
+    </script>
+</body>
+</html>
