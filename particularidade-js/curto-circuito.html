@@ -27,6 +27,28 @@
         }
         teste();
         teste(0);
+
+        //Curto-Circuito com || (OU Lógico)
+        //O operador || retorna o primeiro valor verdadeiro que encontrar, sem avaliar o restante.
+        let nome = "" || "Usuário Padrão";  
+        console.log(nome); // "Usuário Padrão" (porque "" é falso)
+        console.log(null || undefined || "Valor Padrão" || 42); // "Valor Padrão"
+        
+
+        //Curto-Circuito com && (E Lógico)
+        //O operador && retorna o primeiro valor falso que encontrar. Se todos forem verdadeiros, ele retorna o último.
+        let isLogged = true && "Painel do Usuário";  
+        console.log(isLogged); // "Painel do Usuário" (porque `true` não interrompe)
+        console.log(0 && "Texto"); // 0 (porque 0 é falso e para a execução)
+
+
+
+        //Curto-Circuito com ?? (Nullish Coalescing)
+        //O operador ?? funciona como ||, mas só considera null e undefined como valores falsos.
+        let valor = null ?? "Valor Padrão";  
+        console.log(valor); // "Valor Padrão"
+        console.log(0 ?? "Outro Valor"); // 0 (porque 0 não é null nem undefined)
+
     </script>
 </body>
 </html>
