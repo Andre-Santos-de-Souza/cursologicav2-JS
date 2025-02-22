@@ -20,7 +20,7 @@ function fn2(n1){
 }
 const funcao2 = fn2(10)
 const mult = funcao2(2)
-console.log(mult)
+console.log(mult+"a")
 
 function fn3(){
     fn3.count++

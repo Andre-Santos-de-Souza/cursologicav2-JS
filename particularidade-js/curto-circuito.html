@@ -30,6 +30,7 @@
 
         //Curto-Circuito com || (OU Lógico)
         //O operador || retorna o primeiro valor verdadeiro que encontrar, sem avaliar o restante.
+        //Se todos os valores em uma expressão com || forem falsos (ou seja, falsy), o operador retorna o último valor da expressão.
         let nome = "" || "Usuário Padrão";  
         console.log(nome); // "Usuário Padrão" (porque "" é falso)
         console.log(null || undefined || "Valor Padrão" || 42); // "Valor Padrão"
