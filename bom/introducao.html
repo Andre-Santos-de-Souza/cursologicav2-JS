@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Teste BOM - curso javascript</h1>
+    <!--innerWidth e innerHeight: Retornam a largura e altura da área visível da janela do navegador (viewport), sem incluir barras de rolagem ou bordas.
+
+    outerWidth e outerHeight: Retornam a largura e altura totais da janela do navegador, incluindo bordas, barras de rolagem e menus.
+
+    screenX e screenY: Indicam a posição da janela do navegador em relação à tela do monitor, medindo a distância do canto superior esquerdo da tela até o canto superior esquerdo da janela do navegador.-->
+
+    <a href="history.html">Vai para History.html</a>
+
+    <button>Abre com o método open</button>
+    <img src="https://wallpapersok.com/images/hd/cool-javascript-code-8tctio4amzli9c5m.jpg" alt="JS">
+
+    <hr>
+    <!--scrollTo() é um método em JavaScript que permite rolar a janela ou um elemento específico para coordenadas específicas na página. Ele recebe dois argumentos: as coordenadas x e y para as quais rolar. O método também pode receber um objeto de opções para controlar o comportamento da rolagem, como suavidade da animação.-->
+
+    <!--O método scrollBy() em JavaScript é usado para rolar a janela do navegador em uma determinada quantidade de pixels. Ele recebe dois argumentos:
+    x: O número de pixels para rolar horizontalmente. Um valor positivo rola para a direita e um valor negativo rola para a esquerda.
+    y: O número de pixels para rolar verticalmente. Um valor positivo rola para baixo e um valor negativo rola para cima.
+    O método scrollBy() é útil para criar efeitos de rolagem personalizados em seu site. Por exemplo, você pode usá-lo para rolar a página até um determinado ponto quando um usuário clica em um link ou para criar um efeito de rolagem suave.-->
+
+    <!--scrollBy() é como dizer "role mais X pixels para a direita e mais Y pixels para baixo".
+    scrollTo() é como dizer "role para a posição exata X e Y".-->
+
+    <!--pageXOffset e pageYOffset são propriedades somente leitura da janela que retornam o número de pixels que o documento atual foi rolado do canto superior esquerdo da janela, respectivamente nas direções horizontal e vertical.-->
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, ipsam rem. Nam, unde dolores doloribus iste debitis facere enim est fuga saepe ex obcaecati tempora ab, qui molestias ut eius?</p>
+
+    <script>
+        let teste = "Variavel de introducao.html"
+
+        function teste2(){
+            console.log("teste2 chamado")
+        }
+
+        console.log(opener)
+        document.querySelector("button").addEventListener("click", function(){
+            /*Em JavaScript, window.open() é usado para abrir uma nova janela do navegador ou uma nova aba. Ele aceita três argumentos:
+
+            URL: O endereço da página que você quer abrir.
+            Nome: Um nome para a nova janela ou aba. Se já existir uma janela ou aba com esse nome, a URL será carregada nela. Caso contrário, uma nova janela ou aba será criada.
+            Especificações: Uma string opcional com configurações para a nova janela, como tamanho, posição e barra de ferramentas.*/
+            window.open("history.html", "nome-janela","width=600,height=300")
+        })
+
+        /*O evento "load" é acionado quando toda a página e seus recursos dependentes (como imagens, estilos CSS e scripts externos) foram completamente carregados.*/
+        window.addEventListener("load", function(){
+            console.log("load")
+        })
+        /*O evento DOMContentLoaded é disparado quando o HTML da página foi completamente carregado e analisado, sem esperar que os estilos, imagens e outros recursos externos tenham sido carregados.*/
+        window.addEventListener("DOMContentLoaded", function(){
+            console.log("DOMContentLoaded")
+        })
+
+        /*O evento "resize" é acionado sempre que a janela do navegador é redimensionada. No código que você postou, isso significa que toda vez que o usuário alterar o tamanho da janela, a função dentro do addEventListener será executada.*/
+        window.addEventListener("resize", function(){
+            console.log("resize", innerWidth, innerHeight)
+        })
+        /*O evento scroll no JavaScript é acionado sempre que o usuário rola a página para cima ou para baixo.*/
+        window.addEventListener("scroll", function(){
+            console.log("scroll",pageYOffset)
+        })
+        /*O evento unload no JavaScript é acionado quando a página está prestes a ser descarregada (ou seja, quando o usuário sai da página, fecha a guia ou atualiza a página). Ele pode ser usado para executar ações antes que a página seja fechada, como salvar dados ou limpar recursos.*/
+        window.addEventListener("unload", function(){
+            console.log("unload")
+            debugger
+            alert("unload")
+        })
+        /*O evento beforeunload é disparado no objeto window pouco antes de uma página ser descarregada (quando o usuário tenta sair da página, atualizar ou fechar a aba/navegador). Esse evento permite que você execute código antes da saída da página, como mostrar um aviso ao usuário.*/
+        window.addEventListener("beforeunload", function(){
+            console.log("beforeunload")
+            debugger
+            alert("beforeunload")
+        })
+    </script>
+</body>
+</html>

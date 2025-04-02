@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>History</h1>
+    <button id="btnBack">Voltar</button> <br>
+    <button id="btmForward">Avança</button>
+    <a href="http://google.com"></a>
+
+    <button id="btnClose">Fechar</button>
+    <script>
+        console.log(opener)
+
+        if(opener){
+            opener.teste2
+        }
+
+        /*O history em JavaScript é um objeto da API do navegador que permite manipular o histórico de navegação do usuário. Ele faz parte do window.history e oferece métodos como:
+
+        history.back(): Vai para a página anterior.
+
+        history.forward(): Avança para a próxima página.
+
+        history.go(n): Navega para um determinado número de páginas (positivo para avançar, negativo para voltar).
+
+        history.pushState(state, title, url): Adiciona uma nova entrada ao histórico sem recarregar a página.
+
+        history.replaceState(state, title, url): Substitui a URL atual no histórico sem criar uma nova entrada.*/
+        document.getElementById("btnBack").addEventListener("click", function(){
+            history.back()
+        })
+        document.getElementById("btnForward").addEventListener("click", function(){
+            history.forward()
+        })
+
+        /*O objeto location em JavaScript representa a URL atual da janela do navegador e permite manipulá-la. Ele faz parte do objeto window e oferece propriedades e métodos úteis, como:
+
+        location.href – Obtém ou define a URL completa da página.
+
+        location.hostname – Obtém o nome do domínio.
+
+        location.pathname – Obtém o caminho da URL.
+
+        location.search – Obtém a string de consulta (query string).
+
+        location.hash – Obtém a âncora (# na URL).
+
+        location.reload() – Recarrega a página.
+
+        location.assign(url) – Redireciona para outra URL.
+
+        location.replace(url) – Substitui a URL atual sem adicionar ao histórico.*/
+
+
+
+        /*O objeto Navigator em JavaScript fornece informações sobre o navegador do usuário e seu ambiente. Ele faz parte da API window.navigator e permite acessar dados como:
+
+        navigator.userAgent – Retorna a string do agente do usuário (informações do navegador e sistema operacional).
+
+        navigator.language – Indica o idioma preferido do navegador.
+
+        navigator.onLine – Indica se o navegador está online (true ou false).
+
+        navigator.geolocation – Permite acessar a localização do usuário (mediante permissão).
+
+        navigator.clipboard – Dá acesso à área de transferência para copiar e colar conteúdo.
+
+        O Navigator é útil para adaptar a experiência do usuário com base no navegador e em suas configurações.*/
+
+        /*Em JavaScript, o objeto screen fornece informações sobre a tela do dispositivo em que o navegador está sendo executado. Ele permite acessar propriedades como largura, altura, resolução e profundidade de cores da tela. Isso pode ser útil para ajustar o layout e o design de um site com base nas características da tela do usuário.*/
+
+        document.getElementById("btnClose").addEventListener("click", function(){
+            /*Em JavaScript, a função close() é usada para fechar a janela ou aba do navegador atual. No entanto, por razões de segurança, ela só funciona em janelas que foram abertas por um script usando o método window.open(). Tentar fechar janelas que foram abertas diretamente pelo usuário geralmente não terá efeito.
+            Em resumo:
+
+            Fecha a janela atual: A função close() tenta fechar a janela ou aba onde o script está sendo executado.
+            Restrição de segurança: Só funciona em janelas abertas por scripts usando window.open().
+            Não fecha janelas abertas pelo usuário: Não é possível fechar programaticamente janelas que o usuário abriu diretamente.*/
+            close()
+        })
+
+    </script>
+</body>
+</html>
