@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: blueviolet;
+            padding: 2em;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod enim aliquid cumque ex iste ea iure corporis ipsa impedit quam blanditiis, omnis obcaecati, itaque et perspiciatis beatae similique numquam atque.</p>
+    <h1 style="background-color: red;" id="div1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, corrupti necessitatibus neque eum dicta doloremque magnam laudantium adipisci dolores illum suscipit laborum voluptatibus quos minima ut molestiae quo error doloribus!</h1>
+    <script>
+        const div1 = document.getElementById("div1")
+        div1.classList.add("teste1")
+        div1.classList.add("teste2")
+        div1.classList.remove("teste1")
+        div1.classList.toggle("teste2")
+        div1.classList.add("teste1")
+        div1.classList.add("teste2")
+        div1.className = "teste3" //Se vc adicionar uma classe com className ele apagar as classes existentes e adiciona a nova classe
+
+        console.log(div1.offsetHeight)//Retorna a altura total do elemento, incluindo bordas e padding (mas sem margem)
+        console.log(div1.offsetWidth)//Retorna a largura total do elemento, incluindo bordas e padding (também sem margem).
+        console.log(div1.offsetLeft)//Retorna a distância em pixels do lado esquerdo do elemento em relação ao seu elemento pai mais próximo com posicionamento (ou ao body, se não houver).
+        console.log(div1.offsetTop)//Retorna a distância em pixels do topo do elemento em relação ao topo do elemento pai posicionado.
+
+        /*O método getBoundingClientRect() retorna um objeto com as dimensões e a posição relativa ao viewport (a parte visível da página) do elemento.
+        top: distância do topo do elemento até o topo da janela (viewport).
+
+        left: distância da borda esquerda do elemento até a borda esquerda da janela.
+
+        right: distância da borda direita do elemento até a borda esquerda da janela.
+
+        bottom: distância da borda inferior do elemento até o topo da janela.
+
+        width: largura visível do elemento.
+
+        height: altura visível do elemento.
+
+        x: igual a left (posição horizontal).
+
+        y: igual a top (posição vertical).*/
+        console.log(div1.getBoundingClientRect())
+    </script>
+</body>
+</html>
