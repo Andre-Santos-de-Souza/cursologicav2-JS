@@ -1,1 +1,1 @@
-# curso_de_react
+# curso_de_js
