@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO</title>
+</head>
+<body>
+    <p>Criar uma classe Produto que receba na função construtora o nome e a quantidade em estoque inicial.</p>
+    <p>Implementar 2 métodos: comprar() e adicionar(). Fazzer todas as verificações possíveis para evitar erros.</p>
+
+    <script>
+        class Produto{
+            constructor(nome ,quantidadeEstoque){
+                console.log("Construtor chamado")
+                this.nome = nome
+                this.quantidadeEstoque = (quantidadeEstoque<0) ? 0 :quantidadeEstoque
+            }
+            comprar(quantidade){
+                if(quantidade<0){
+                    throw Error("Quantidade não pode ser negativa")
+                }
+                if(quantidade > this.quantidadeEstoque){
+                    console.log("Não há quantidade suficiente para finalizar a crompra")
+                    return null
+                }
+                this.quantidadeEstoque -= quantidade
+                console.log(`Você comprou ${quantidade} unidade do produto ${this.nome}`)
+            }
+            adicionar(quantidade){
+                if(quantidade<0){
+                    throw Error("Quantidade não pode ser negativa")
+                }
+                this.quantidadeEstoque += quantidade
+                console.log(`Você adicionou ${quantidade} unidade do produto ${this.nome}`)
+            }
+            verificaEstoque(){
+                console.log(`Estoque do produto ${this.nome}: ${this.quantidadeEstoque} unidades`)
+            }
+        }
+
+        const caneta = new Produto("caneta",10)
+        const lapis = new Produto("lapis",20)
+    </script>
+</body>
+</html>
